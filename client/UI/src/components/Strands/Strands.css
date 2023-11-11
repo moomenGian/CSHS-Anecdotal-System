@@ -1,0 +1,7 @@
+.s{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+
+    padding-left: 15px;
+}

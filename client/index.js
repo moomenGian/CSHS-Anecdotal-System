@@ -11,6 +11,7 @@ async function fetchViolations() {
   try {
     const response = await fetch("http://localhost:3000/violations");
     const data = await response.json();
+
     return data;
   } catch (error) {
     console.error("ERROR", error);
@@ -38,8 +39,8 @@ function addButtonListeners(){
             const studentId = button.dataset.studentId;
 
             fetchViolations().then((data) => {
-                data.forEach(item =>{
-                    console.log(item);
+                data.forEach(violation =>{
+                    console.log(violation);
                 })
             });
         });

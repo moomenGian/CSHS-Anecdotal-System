@@ -1,0 +1,35 @@
+h6{
+    font-size: 17px;
+}
+
+.card-box{
+    background-color: #D9D9D9;
+    border: 1px solid black;
+    width: 300px;
+    padding-top: 10px;
+}
+
+.Card{
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 10px;
+}
+
+.sec{
+    /* padding-top: 10px; */
+    padding-left: 10px;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .Card .card-box{
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    .Card .card-box{
+        width: 200px;
+    }
+}

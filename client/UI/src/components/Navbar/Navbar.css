@@ -1,0 +1,56 @@
+nav{
+    background-color: #1D57AA;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    text-align: center;
+    color: white;
+    padding: 10px;
+
+    width: 6vw;
+    min-width: 86px;
+
+    height: 100%;
+
+}
+
+.school-logo {
+    width: 65px;
+}
+
+div a {
+    text-align: center;
+}
+
+nav a {
+    color: white !important; 
+    text-decoration: none;
+    font-size: 13px !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+    padding-block: 20px;
+}
+
+nav .links{
+    display: flex;
+    flex-direction: column;
+}
+
+nav .footer{
+    padding: 10px;
+}
+
+.footer a{
+    padding-inline: 0;
+}
+
+.footer img{
+
+    width: 50px;
+}
