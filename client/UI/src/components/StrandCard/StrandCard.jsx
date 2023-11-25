@@ -5,21 +5,21 @@ function StrandCard({ Strand, Sections}) {
         <>
             <div className="Card">
                 <div className='card-content'>
-                    <h6>{Strand}</h6>
+                    <div className='d-flex justify-content-between px-3'>
+                        <h6>{Strand}</h6>
+                        <h6 className='violation-header'>Violations</h6>
+                    </div>
+                    
 
                     <div className="card-box">
-                        {Sections.map(section => {
-                            return <p className='sec'>{section}</p>
-                        })}
-                    </div>
-                </div>
-                <div>
-                    <h6 className='text-center'>Violations</h6>
+                        
+                        { Sections.map((section, index) => (
+                            <div key={`${section.name}-${index}`} className='d-flex px-2 justify-content-between main'>
+                                <p className='text-center mb-0 text-nowrap' >{section.name}</p>
+                                <p className='text-center violation mb-0' >{section.violation}</p>
+                            </div>
+                        )) }
 
-                    <div className='card-box'>
-                        <p className='text-center'>0</p>
-                        <p className='text-center'>0</p>
-                        <p className='text-center'>0</p>
                     </div>
                 </div>
             </div>

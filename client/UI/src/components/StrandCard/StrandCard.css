@@ -2,34 +2,56 @@ h6{
     font-size: 17px;
 }
 
+.card-box > div:nth-child(even) {
+    background-color: gainsboro;
+}
+
+
 .card-box{
-    background-color: #D9D9D9;
+    background-color: #f3f2f2;
     border: 1px solid black;
-    width: 300px;
-    padding-top: 10px;
+    width: 515px;
+
+    height: 175px;
+    overflow: overlay;
 }
 
 .Card{
     display: flex;
     flex-direction: row;
 
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .sec{
-    /* padding-top: 10px; */
     padding-left: 10px;
 }
 
 
-@media only screen and (max-width: 1300px) {
+
+@media only screen and (max-width: 1150px) {
+    .Card .card-box{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .Card .card-box{
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 840px) {
     .Card .card-box{
         width: 250px;
     }
 }
 
-@media only screen and (max-width: 1090px) {
-    .Card .card-box{
-        width: 200px;
-    }
+.card-content{
+    width:max-content;
+}
+
+.main{
+    padding-right: 3rem !important;
+    padding-block: 5px;
 }

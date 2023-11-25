@@ -54,3 +54,7 @@ nav .footer{
 
     width: 50px;
 }
+
+nav{
+    position: fixed;
+}

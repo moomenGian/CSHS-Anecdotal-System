@@ -8,8 +8,8 @@ function Navbar() {
             <nav>
                 <img className='school-logo' src={schoolLogo} alt="school logo"/>
                 <div className="links">
-                    <a href="#" className='btn'>DASHBOARD</a>
-                    <a href="#" className='btn'>RECORDS</a>
+                    <a href="DASHBOARD.html" className='btn'>DASHBOARD</a>
+                    <a href="" className='btn'>RECORDS</a>
                 </div>
 
                 
