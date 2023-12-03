@@ -27,6 +27,19 @@ h6{
     padding-left: 10px;
 }
 
+.card-box a{
+    color: unset;
+}
+.card-box a:hover{
+    color: #1D57AA;
+    font-weight: bold;
+    font-size: large;
+    transition: font-size 0.2s ease; 
+}
+
+a:hover{
+    font-weight: 600;
+}
 
 
 @media only screen and (max-width: 1150px) {

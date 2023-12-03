@@ -1,0 +1,41 @@
+.header{
+    font-size: 26px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.col-1{
+    flex: 0 0 96px !important;
+}
+
+.col-11{
+    flex: 0 0 91.666667% !important;
+}
+
+.sectionInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sectionInfo h2{
+    font-size: 20px;
+    display: inline-block;
+}
+
+.sectionInfo p{
+    display: inline-block;
+}
+
+table{
+    width: 98%;
+    text-align: center;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
+
+tr{
+    padding: 22px;    
+}

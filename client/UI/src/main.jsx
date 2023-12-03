@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Homepage from './components/Homepage/Homepage'
+import SectionPage from './components/SectionPage/SectionPage'
 import './index.css'
 
 import {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Homepage />
+  },
+  {
+    path: '/section/:Strand/:sectionName',
+    element: <SectionPage />
   }
 ])
 

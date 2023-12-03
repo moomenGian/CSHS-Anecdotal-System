@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './StrandCard.css'
 
 function StrandCard({ Strand, Sections}) {
@@ -14,10 +15,14 @@ function StrandCard({ Strand, Sections}) {
                     <div className="card-box">
                         
                         { Sections.map((section, index) => (
-                            <div key={`${section.name}-${index}`} className='d-flex px-2 justify-content-between main'>
-                                <p className='text-center mb-0 text-nowrap' >{section.name}</p>
-                                <p className='text-center violation mb-0' >{section.violation}</p>
-                            </div>
+                            <Link key={section.name} 
+                                  to={`/section/:${Strand}/${section.name}`}
+                            >
+                                <div key={`${section.name}-${index}`} className='d-flex px-2 justify-content-between main'>
+                                    <p className='text-center mb-0 text-nowrap' >{section.name}</p>
+                                    <p className='text-center violation mb-0' >{section.violation}</p>
+                                </div>
+                            </Link>
                         )) }
 
                     </div>
