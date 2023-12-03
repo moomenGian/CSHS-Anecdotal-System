@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
     // })
 
     return res.send({
-        test: {test}
+        test: 'asdasddasdasasd'
     })
 })
 
