@@ -39,34 +39,36 @@ let studentDatas = []
 //                     JOIN violations v ON s.StudentID = v.StudentID
 //                     WHERE s.StudentName = 'xander'; ` 
   
-//     // connection.query(query, (err, results) => {
-//     //     if (err) {
-//     //         console.error('Error executing query:', err);
-//     //         return;
-//     //     }
-//     //     // console.log(results);
-//     //     // console.log(formatDate(results)); 
-//     //     //remove the time from date
-//     //     studentDatas = results
+//     connection.query(query, (err, results) => {
+//         if (err) {
+//             console.error('Error executing query:', err);
+//             return;
+//         }
+//         // console.log(results);
+//         // console.log(formatDate(results)); 
+//         //remove the time from date
+//         studentDatas = results
         
         
-//     //     //Close the database connection when finished
-//     //     connection.end((err) => {
-//     //         if (err) {
-//     //             console.error('Error closing the database connection:', err);
-//     //         } else {
-//     //             console.log('Database connection closed');
-//     //         }
-//     //     });
+//         //Close the database connection when finished
+//         connection.end((err) => {
+//             if (err) {
+//                 console.error('Error closing the database connection:', err);
+//             } else {
+//                 console.log('Database connection closed');
+//             }
+//         });
 
-//     // });
+//     });
 
 // });
 
 //send the students name adn section data
 app.get('/students', (req,res) => res.send(studentDatas) )
 
-
+app.get('/', (req,res) => {
+    return res.send('connected to server')
+})
 
 app.use('/violations', violationsRoute)
 
