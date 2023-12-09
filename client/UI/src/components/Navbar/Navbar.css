@@ -19,6 +19,7 @@ nav{
 
 .school-logo {
     width: 65px;
+    transition: width 0.4s;
 }
 
 div a {
@@ -57,4 +58,17 @@ nav .footer{
 
 nav{
     position: fixed;
+    transition: width 0.4s;
+    z-index: 1;
+}
+
+nav:hover{
+    width: 10%;
+    z-index: 1;
+    transition: width 0.3s;
+
+}
+
+nav:hover .school-logo{
+    width: 85px;
 }

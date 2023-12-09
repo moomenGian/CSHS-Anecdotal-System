@@ -3,6 +3,7 @@ const cors = require('cors')
 // const mysql = require('mysql2')
 
 const violationsRoute = require('./routes/violations')
+const sectionsDataRoute = require('./routes/sectionsData')
 
 const { formatDate } = require('./dateFormat.js')
 
@@ -22,7 +23,7 @@ app.use(cors())
 // })
 
 
-let studentDatas = []
+
 
 // connection.connect((err) => {
 //     if (err) {
@@ -63,15 +64,15 @@ let studentDatas = []
 
 // });
 
+let studentDatas = []
+
 //send the students name adn section data
 app.get('/students', (req,res) => res.send(studentDatas) )
 
-app.get('/', (req,res) => {
-    return res.send('connected to server')
-})
+app.get('/', (req,res) => res.send('connected to server'))
 
 app.use('/violations', violationsRoute)
 
- 
+app.use('/api/sections', sectionsDataRoute)
 
 app.listen(port, () => console.log(`connected to port ${port}`))

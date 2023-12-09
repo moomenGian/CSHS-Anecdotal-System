@@ -1,6 +1,7 @@
 import './Navbar.css'
 import schoolLogo from '../../assets/school-logo.png'
 import settingsLogo from '../../assets/image 6.svg'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
     return (
@@ -8,8 +9,10 @@ function Navbar() {
             <nav>
                 <img className='school-logo' src={schoolLogo} alt="school logo"/>
                 <div className="links">
-                    <a href="DASHBOARD.html" className='btn'>DASHBOARD</a>
-                    <a href="" className='btn'>RECORDS</a>
+                    <a href="#" className='btn'>DASHBOARD</a>
+                    <Link to={'/'} className='btn'>
+                        RECORDS
+                    </Link>
                 </div>
 
                 

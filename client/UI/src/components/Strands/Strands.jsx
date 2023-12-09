@@ -1,14 +1,77 @@
 import StrandCard from "../StrandCard/StrandCard"
 import './Strands.css'
+import { useState, useEffect } from "react";
+
+
+async function getNumOfViolations(sectionName) {
+
+
+    // return null
+    try {
+        const response = await fetch(`http://localhost:3000/api/sections/${sectionName}`)
+        
+        if(response.status === 404){
+            console.error('Section not found or Section does not have records yet');
+            return null
+        }
+
+        const dataFetched = await response.json()
+        return dataFetched.length
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
 
 function Strands() {
-    const sectionsData = [
+
+    const [sectionsData, setSectionsData] = useState([
         { name: '12 - CARMACK', violation: 0 },
         { name: '12 - BERNERS LEE', violation: 0 },
         { name: '11 - JAVA', violation: 0 },
         { name: '11 - RUBY', violation: 0 },
         { name: '12 - GATES', violation: 0 }
-    ];
+    ]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const dataPromises = sectionsData.map(async section => {
+                const violationCount = await getNumOfViolations(section.name.replaceAll(' ',''));
+                return { ...section, violation: violationCount ?? 0 };
+            });
+
+            Promise.all(dataPromises).then(sectionsData => setSectionsData(sectionsData));
+        };
+
+        fetchData();
+    }, []);
+
+
+    //////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const sectionsData = [
+    //     { name: '12 - CARMACK', violation: getNumOfViolations('12-CARMACK') ?? 0 },
+    //     { name: '12 - BERNERS LEE', violation: 0 },
+    //     { name: '11 - JAVA', violation: 0 },
+    //     { name: '11 - RUBY', violation: 0 },
+    //     { name: '12 - GATES', violation: 0 }
+    // ];
 
     const STEMsections = [
         { name: '11 - EUCLID', violation: 0 },
