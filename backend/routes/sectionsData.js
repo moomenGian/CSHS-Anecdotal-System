@@ -31,7 +31,6 @@ async function getData(sectionName) {
             }
     
             if(res.length === 0){
-                console.error('Section not found or Section does not have records yet')
                 resolve(null)
             }else{
                 const result = []

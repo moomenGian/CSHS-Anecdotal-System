@@ -72,6 +72,16 @@ tr{
     padding-right: 30px;
 }
 
+p.btn:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.container-fluid > .row{
+    justify-content: space-between;
+    margin-right: -7px;
+}
+
 @media only screen and (min-width: 1100px) {
     .sectionInfo{
         width: 97%;

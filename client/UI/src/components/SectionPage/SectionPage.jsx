@@ -14,7 +14,6 @@ async function fetchSectionDatas(sectionName, setData) {
         const response = await fetch(`http://localhost:3000/api/sections/${sectionName}`)
         
         if(response.status === 404){
-            console.error('Section not found or Section does not have records yet');
             return
         }
 
@@ -51,9 +50,7 @@ function Content({Strand, sectionName}) {
         }
     };
 
-    fetchViolations().then(data => {
-        console.log(violations.length);
-    })
+    fetchViolations()
 
 
 
@@ -65,7 +62,7 @@ function Content({Strand, sectionName}) {
 
             <div className="sectionInfo">
                 <h2>{Strand} {sectionName} - {adviser ? adviser : '<Adviser not found>' }</h2>
-                <p>Total Violations: 0</p>
+                <p>Total Violations: {violations ? violations.length : 0}</p>
             </div>
             <table>
                     <thead>
@@ -107,6 +104,9 @@ function Content({Strand, sectionName}) {
                                 )
                             })
                         )}
+                        <tr colSpan={5}>
+                            <td colSpan={5}><p className="btn" style={{margin: 0}}>Add New Record +</p></td>
+                        </tr>
                     </tbody>
                     
             </table>

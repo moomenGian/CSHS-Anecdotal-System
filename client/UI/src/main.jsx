@@ -4,10 +4,12 @@ import Homepage from './components/Homepage/Homepage'
 import SectionPage from './components/SectionPage/SectionPage'
 import './index.css'
 
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
+import Mudal from './Popo/Mudal'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/section/:Strand/:sectionName',
     element: <SectionPage />
+  },
+  {
+    path: '/test',
+    element: <Mudal />
   }
 ])
 
