@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Homepage from './components/Homepage/Homepage'
 import SectionPage from './components/SectionPage/SectionPage'
+import Dashboard from './components/Dashboard/Dashboard'
 import './index.css'
 
 
@@ -9,7 +10,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import Mudal from './Popo/Mudal'
 
 const router = createBrowserRouter([
   {
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
     element: <SectionPage />
   },
   {
-    path: '/test',
-    element: <Mudal />
+    path: '/Dashboard',
+    element: <Dashboard />
   }
 ])
 

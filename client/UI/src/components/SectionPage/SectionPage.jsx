@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Navbar from "../Navbar/Navbar"
 import './SectionPage.css'
 import { Link } from 'react-router-dom'
+import AddRecordBtn from '../AddRecordBtn/AddRecordBtn' 
 
 import { useParams } from "react-router-dom"
 
@@ -105,7 +106,7 @@ function Content({Strand, sectionName}) {
                             })
                         )}
                         <tr colSpan={5}>
-                            <td colSpan={5}><p className="btn" style={{margin: 0}}>Add New Record +</p></td>
+                            <td colSpan={5}><AddRecordBtn getSectionName={formattedSecName}/></td>
                         </tr>
                     </tbody>
                     

@@ -9,7 +9,9 @@ function Navbar() {
             <nav>
                 <img className='school-logo' src={schoolLogo} alt="school logo"/>
                 <div className="links">
-                    <a href="#" className='btn'>DASHBOARD</a>
+                    <Link to={'/Dashboard'} className='btn'>
+                        DASHBOARD
+                    </Link>
                     <Link to={'/'} className='btn'>
                         RECORDS
                     </Link>
