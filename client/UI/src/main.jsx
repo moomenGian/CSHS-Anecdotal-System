@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Homepage from './components/Homepage/Homepage'
 import SectionPage from './components/SectionPage/SectionPage'
 import Dashboard from './components/Dashboard/Dashboard'
+import Loginpage from './components/LoginPage/LoginPage'
 import './index.css'
 
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/Dashboard',
     element: <Dashboard />
+  },
+  {
+    path: '/Login',
+    element: <Loginpage />
   }
 ])
 

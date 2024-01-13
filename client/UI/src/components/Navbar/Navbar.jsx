@@ -19,7 +19,9 @@ function Navbar() {
 
                 
                 <div className='footer'>
-                    <a href="#" className='btn'>Log-in</a>
+                    <Link to={'/Login'} className='btn'>
+                        Log in
+                    </Link>
                     <a href="#">
                         <img src={settingsLogo} alt="school logo"/>
                     </a>

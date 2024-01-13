@@ -6,6 +6,13 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import './Modal.scss'
 
 async function sendRecord(datas) {
+
+  //validate input
+  const {sectionName, adviser, violator, violation, witness, date} = datas
+  if(!sectionName || !adviser || !violator || !violation || !witness || !date){
+    return
+  }
+
   try {
     const response = await fetch('http://localhost:3000/insertRecord', {
       method: 'POST',
@@ -19,7 +26,9 @@ async function sendRecord(datas) {
       throw new Error('Error inserting record');
     }
 
-    console.log('Successfully inserted record');
+    
+    window.location.reload()
+    
   } catch (error) {
     console.error('Error inserting record', error);
   }
@@ -62,39 +71,53 @@ function Mudal({getSectionName}) {
               controlId="exampleForm.ControlTextarea1"
             >
               <FloatingLabel controlId="floatingInput" >
-                <Form.Control placeholder="Adviser" onChange={(e) => {setAdviser(e.target.value)}} />
+                <Form.Control placeholder="Adviser" onChange={(e) => {setAdviser(e.target.value)}} required/>
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <Form.Control placeholder="Violator's Name" onChange={(e) => {setViolator(e.target.value)}} />
+                <Form.Control placeholder="Violator's Name" onChange={(e) => {setViolator(e.target.value)}} required/>
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <Form.Control placeholder="Violation Description" onChange={(e) => {setViolation(e.target.value)}} />
+                <Form.Control placeholder="Violation Description" onChange={(e) => {setViolation(e.target.value)}} required/>
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <Form.Control placeholder="Witness" onChange={(e) => {setWitness(e.target.value)}} />
+                <Form.Control placeholder="Witness" onChange={(e) => {setWitness(e.target.value)}} required/>
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <input type="date" name="" id="" className='date-input-record' onChange={(e) => {setDate(e.target.value)}}/>
+                <input type="date" name="" id="" className='date-input-record' onChange={(e) => {setDate(e.target.value)}} required/>
               </FloatingLabel>
               
 
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button type='submit' onClick={() => {
+                    sendRecord({sectionName, adviser, violator, violation, witness, date});
+                  }}>Save Changes
+                </Button>
+              </Modal.Footer>
+              
+              
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {
-              handleClose(); sendRecord({sectionName, adviser, violator, violation, witness, date}); window.location.reload()
+          <Form.Group>
+            
+          </Form.Group> */}
+          {/* <Button variant="primary" onClick={() => {
+              handleClose(); sendRecord({sectionName, adviser, violator, violation, witness, date});
             } }>
             Save Changes
-          </Button>
-        </Modal.Footer>
+          </Button> */}
+        {/* </Modal.Footer> */}
       </Modal>
     </div>
   );

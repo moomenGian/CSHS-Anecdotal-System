@@ -5,6 +5,7 @@ const cors = require('cors')
 const violationsRoute = require('./routes/violations')
 const sectionsDataRoute = require('./routes/sectionsData')
 const insertRecordRoute = require('./routes/insertRecord')
+const logInRoute = require('./routes/logIn.js')
 
 const { formatDate } = require('./dateFormat.js')
 
@@ -26,5 +27,7 @@ app.use('/violations', violationsRoute)
 app.use('/api/sections', sectionsDataRoute)
 
 app.use('/insertRecord', insertRecordRoute)
+
+app.use('/login', logInRoute)
 
 app.listen(port, () => console.log(`connected to port ${port}`))

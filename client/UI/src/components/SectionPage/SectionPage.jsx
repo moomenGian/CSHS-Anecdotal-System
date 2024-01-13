@@ -62,7 +62,7 @@ function Content({Strand, sectionName}) {
             </h1>
 
             <div className="sectionInfo">
-                <h2>{Strand} {sectionName} - {adviser ? adviser : '<Adviser not found>' }</h2>
+                <h2>{Strand} / {sectionName} / {adviser ? adviser : '<Adviser not found>' }</h2>
                 <p>Total Violations: {violations ? violations.length : 0}</p>
             </div>
             <table>
