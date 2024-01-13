@@ -2,7 +2,7 @@ import './LoginPage.css'
 import schoolLogo from '../../assets/school-logo.png'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 
 async function handleLogin(username, password, e, setAuthorization) {
@@ -31,8 +31,13 @@ async function handleLogin(username, password, e, setAuthorization) {
 function LoginPage() {
     let [username, setUser] = useState('')
     let [password, setPass] = useState('')
-    const [authorized, setAuthorization] = useState(false)
 
+    // const {authorized, setAuthorization} = useContext(AuthContext)
+    // console.log(authorized);
+    const [authorized, setAuthorization] = useState(false)
+    if(authorized){
+        return <Navigate to={'/'} replace="true"/>
+    }
     return (
         <div className='container-fluid backgroundPhoto'>
             <div className='row'>
@@ -43,11 +48,14 @@ function LoginPage() {
                 <div className='col d-flex'>
                     <div className='d-flex flex-column align-items-center justify-content-center align-self-center login-container'>
                         <p>Log in</p>
-                        {authorized && <Navigate to={'/'} replace="true"/>}
                         <Form>
                             <Form.Control required type="text" placeholder="Username" className='userName mb-4 mt-5' onChange={(e) => {setUser(e.target.value)}} />
                             <Form.Control required type="password" placeholder="Password" className='userPass mb-4' onChange={(e) => {setPass(e.target.value)}}/>
-                            <Button className='Login' type="submit" onClick={(e) => {handleLogin(username, password, e, setAuthorization);}}>Log in</Button>
+                            <Button className='Login' type="submit" 
+                                onClick={(e) => {handleLogin(username, password, e, setAuthorization);}}
+                            >
+                                Log in
+                            </Button>
                         </Form>
                     </div>
                 </div>

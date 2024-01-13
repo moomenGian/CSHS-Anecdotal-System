@@ -1,8 +1,11 @@
 import './Homepage.css'
 import Navbar from '../Navbar/Navbar'
 import SectionsPage from '../SectionsPage/SectionsPage'
+import { AuthContext, useAuthContext } from '../../Hooks/AuthContext' 
+import { useContext } from 'react'
 
 function Homepage() {
+    console.log(useAuthContext(AuthContext));
     return (
         <>
             <div className="container-fluid">
