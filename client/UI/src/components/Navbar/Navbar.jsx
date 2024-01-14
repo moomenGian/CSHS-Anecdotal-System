@@ -2,6 +2,7 @@ import './Navbar.css'
 import schoolLogo from '../../assets/school-logo.png'
 import settingsLogo from '../../assets/image 6.svg'
 import { Link } from 'react-router-dom'
+import { useAuthContext } from '../../Hooks/AuthContext'
 
 function Navbar() {
     return (

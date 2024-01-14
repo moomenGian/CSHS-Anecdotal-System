@@ -2,8 +2,8 @@ import './LoginPage.css'
 import schoolLogo from '../../assets/school-logo.png'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/esm/Button'
-import { useContext, useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import { useState } from 'react'
 
 async function handleLogin(username, password, e, setAuthorization) {
     e.preventDefault()
@@ -18,23 +18,21 @@ async function handleLogin(username, password, e, setAuthorization) {
         })
 
         if(response.ok){
-             console.log('SUCESSFULLY LOGGED IN');
+             console.log(setAuthorization);
              setAuthorization(true)
+             window.location.reload()
         }else{
-            console.error(user, pass, 'Invalid user')
+            console.error(username, password, 'Invalid user')
         }
     }catch(e){
         console.error(e);
     }
 }
 
-function LoginPage() {
+function LoginPage({authorized, setAuthorization}) {
     let [username, setUser] = useState('')
     let [password, setPass] = useState('')
-
-    // const {authorized, setAuthorization} = useContext(AuthContext)
-    // console.log(authorized);
-    const [authorized, setAuthorization] = useState(false)
+    console.log(authorized);
     if(authorized){
         return <Navigate to={'/'} replace="true"/>
     }

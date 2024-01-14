@@ -71,19 +71,19 @@ function Mudal({getSectionName}) {
               controlId="exampleForm.ControlTextarea1"
             >
               <FloatingLabel controlId="floatingInput" >
-                <Form.Control placeholder="Adviser" onChange={(e) => {setAdviser(e.target.value)}} required/>
+                <input type="text" placeholder="Adviser" onChange={(e) => {setAdviser(e.target.value)}} required />
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <Form.Control placeholder="Violator's Name" onChange={(e) => {setViolator(e.target.value)}} required/>
+                <input type="text" placeholder="Violator's Name" onChange={(e) => {setViolator(e.target.value)}} required />
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <Form.Control placeholder="Violation Description" onChange={(e) => {setViolation(e.target.value)}} required/>
+                <input type="text" placeholder='Violation Description' onChange={(e) => {setViolation(e.target.value)}} required />
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
-                <Form.Control placeholder="Witness" onChange={(e) => {setWitness(e.target.value)}} required/>
+                <input type="text" placeholder='Witness' onChange={(e) => {setWitness(e.target.value)}} required />
               </FloatingLabel>
 
               <FloatingLabel controlId="floatingInput">
@@ -105,19 +105,6 @@ function Mudal({getSectionName}) {
             </Form.Group>
           </Form>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Form.Group>
-            
-          </Form.Group> */}
-          {/* <Button variant="primary" onClick={() => {
-              handleClose(); sendRecord({sectionName, adviser, violator, violation, witness, date});
-            } }>
-            Save Changes
-          </Button> */}
-        {/* </Modal.Footer> */}
       </Modal>
     </div>
   );

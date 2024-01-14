@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Homepage from './components/Homepage/Homepage'
-import { AuthContext } from './Hooks/AuthContext'
-
 
 function App() {
+  const sessionAuthorize = sessionStorage.getItem('authorized')
+  const [authorized, setAuthorization] = useState(sessionStorage.getItem('authorized') ? true : '')
+
+  console.log(sessionStorage.getItem('authorized'));
+
+  useEffect(() => {
+    sessionStorage.setItem('authorized', authorized)
+  }, [authorized])
+
   return (
-    <>  
-        <AuthContext.Provider>
-          <Homepage/>
-        </AuthContext.Provider>
-        
+    <>   
+        <Homepage authorized={authorized} setAuthorization={setAuthorization}/>
     </>
   )
 }

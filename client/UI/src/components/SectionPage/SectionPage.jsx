@@ -58,7 +58,7 @@ function Content({Strand, sectionName}) {
     return (
         <>
             <h1 className="header">STUDENT VIOLATION RECORDS 
-                <Link to={'/'} className="d-flex flex-row-reverse btn">Back</Link>  
+                <Link to={'/Home'} className="d-flex flex-row-reverse btn text-primary">Back</Link>  
             </h1>
 
             <div className="sectionInfo">

@@ -1,11 +1,13 @@
 import './Homepage.css'
 import Navbar from '../Navbar/Navbar'
-import SectionsPage from '../SectionsPage/SectionsPage'
-import { AuthContext, useAuthContext } from '../../Hooks/AuthContext' 
-import { useContext } from 'react'
+import SectionsPage from './SectionsPage'
+import LoginPage from '../LoginPage/LoginPage'
 
-function Homepage() {
-    console.log(useAuthContext(AuthContext));
+function Homepage({authorized, setAuthorization}) {
+    console.log(sessionStorage.getItem('authorized'));
+    if(!sessionStorage.getItem('authorized')){
+        return <LoginPage authorized={authorized} setAuthorization={setAuthorization}/>
+    }
     return (
         <>
             <div className="container-fluid">

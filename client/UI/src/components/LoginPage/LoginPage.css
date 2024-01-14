@@ -47,8 +47,8 @@
 }
 
 .userName, .userPass{
-    border: 2px solid;
-    padding: 17px;
+    border: 2px solid !important;
+    padding: 17px !important;
 }
 
 .Login{
