@@ -90,4 +90,4 @@ Start the App
 - Node.js
 - Express.js
 - nodemon
-
+- MySQL
