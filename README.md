@@ -13,5 +13,81 @@ The Student Anecdotal Management System is a web application designed to streaml
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+- **Login Page**
+
+![LoginPage](screenshots/login.PNG)
+
+- **Sections List Page**
+
+![SectionsList](screenshots/sectionsList.PNG)
+
+- **Section Page**
+
+![SectionPage](screenshots/sectionPage.PNG)
+
+- **Dashboard**
+
+![DashboardPage](screenshots/dashboard.PNG)
+
+# Prerequisites
+
+- Node.js installed on your machine. You can download it from the official website: https://nodejs.org
+    
+# Run Locally
+
+To install and run the Student Anecdotal Management System locally, follow these steps:
+
+Clone the project
+
+```bash
+  git clone https://github.com/moomenGian/CSHS-Anecdotal-System
+```
+
+Go to the backend directory
+
+```bash
+  cd backend
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+Go to the frontend directory
+
+```bash
+  cd client
+```
+```bash
+  cd UI
+```
+
+Install dependencies
+
+```bash
+  npm install or npm i
+```
+
+Start the App
+
+```bash
+  npm run dev
+```
+
+
+# Tech Stack
+
+**Client:** 
+- React.js
+- Boostrap
+- Chart.js
+- React Bootstrap
+- React Router Dom
+
+**Server:** 
+- Node.js
+- Express.js
+- nodemon
 

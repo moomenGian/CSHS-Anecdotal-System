@@ -3,20 +3,20 @@ const router = express.Router()
 const mysql = require('mysql2')
 
 
-const con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'anecdotalDB'
-})
+// const con = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'password',
+//     database: 'anecdotalDB'
+// })
 
-con.connect((err) => {
-    if(err){
-        console.err('ERROR CONNECTING TO DATABASE', err);
-        return
-    }
-    console.log('Connected to DB');
-})
+// con.connect((err) => {
+//     if(err){
+//         console.err('ERROR CONNECTING TO DATABASE', err);
+//         return
+//     }
+//     console.log('Connected to DB');
+// })
 
 
 
@@ -56,13 +56,13 @@ async function getData(sectionName) {
 router.get('/:sectionName', async (req, res) => {
     const { sectionName } = req.params;
 
-    const sectionData = await getData(sectionName)
+    // const sectionData = await getData(sectionName)
 
-    if(sectionData){
-        res.json(await getData(sectionName))
-    }else{
-        res.status(404).json({error: 'Section not found or Section does not have records yet'})
-    }
+    // if(sectionData){
+    //     res.json(await getData(sectionName))
+    // }else{
+    //     res.status(404).json({error: 'Section not found or Section does not have records yet'})
+    // }
 })
 
 module.exports = router
