@@ -1,8 +1,8 @@
-import Card from 'react-bootstrap/Card'
 import Navbar from '../Navbar/Navbar'
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { useState, useEffect } from 'react';
+import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
 import './Dashboard.scss'
 
 async function getAllRecords(){
@@ -47,7 +47,28 @@ async function getSectionViolations(){
 }
 
 
-getSectionViolations()
+const data = [
+    { label: 'Group A', value: 400, color: '#0088FE' },
+    { label: 'Group B', value: 300, color: '#00C49F' },
+    { label: 'Group C', value: 300, color: '#FFBB28' },
+    { label: 'Group D', value: 200, color: '#FF8042' },
+  ];
+  
+  const pieSizing = {
+    margin: { right: 5 },
+    width: 200,
+    height: 200,
+    legend: { hidden: true },
+  };
+  const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
+  
+  const getArcLabel = (params) => {
+    const percent = params.value / TOTAL;
+    return `${(percent * 100).toFixed(0)}%`;
+  };
+  
+
+
 function Dashboard() {
     const [violationNumbers, setViolationNumbers] = useState([0]);
     const [sections, setSections] = useState(['null']);
@@ -81,13 +102,29 @@ function Dashboard() {
                             xAxis={[{ data: sections, scaleType: 'band' }]}
                         />
                         <BarChart
-                        width={650}
-                        height={300}
-                        series={[
-                            { data: violationNumbers, label: 'sections', id: 'pvId' },
-                        ]}
-                        xAxis={[{ data: sections, scaleType: 'band' }]}
-                    />
+                            width={650}
+                            height={300}
+                            series={[
+                                { data: violationNumbers, label: 'sections', id: 'pvId' },
+                            ]}
+                            xAxis={[{ data: sections, scaleType: 'band' }]}
+                        />
+                        <PieChart
+                            series={[
+                                {
+                                outerRadius: 80,
+                                data,
+                                arcLabel: getArcLabel,
+                                },
+                            ]}
+                            sx={{
+                                [`& .${pieArcLabelClasses.root}`]: {
+                                fill: 'white',
+                                fontSize: 14,
+                                },
+                            }}
+                            {...pieSizing}
+                        />
                     </div>
                 </div>
             </div>
