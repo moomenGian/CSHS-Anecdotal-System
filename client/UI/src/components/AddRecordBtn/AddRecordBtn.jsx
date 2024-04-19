@@ -108,6 +108,7 @@ function Mudal({getSectionName}) {
       </Modal>
     </div>
   );
+
 }
 
 export default Mudal;

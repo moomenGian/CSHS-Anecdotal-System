@@ -4,6 +4,7 @@ import './SectionPage.css'
 import { Link } from 'react-router-dom'
 import AddRecordBtn from '../AddRecordBtn/AddRecordBtn' 
 
+
 import { useParams } from "react-router-dom"
 
 

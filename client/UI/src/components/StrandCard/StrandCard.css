@@ -1,5 +1,6 @@
 h6{
     font-size: 17px;
+    font-weight: bold;
 }
 
 .card-box > div:nth-child(even) {

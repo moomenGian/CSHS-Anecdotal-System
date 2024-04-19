@@ -7,19 +7,19 @@ const bodyParser = require('body-parser')
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 
-// const con = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'password',
-//     database: 'anecdotalDB'
-// })
+const con = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'anecdotalDB'
+})
 
-// con.connect((err) => {
-//     if(err){
-//         console.error('error connecting to DB', err);
-//         return
-//     }
-// })
+con.connect((err) => {
+    if(err){
+        console.error('error connecting to DB', err);
+        return
+    }
+})
 
 router.post('/', (req, res) => {
     const {
