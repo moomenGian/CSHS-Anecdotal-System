@@ -10,6 +10,7 @@ const mysql = require('mysql2')
 //     `id` INT NOT NULL AUTO_INCREMENT,
 //     `violator` VARCHAR(45) NULL,
 //     `violation` VARCHAR(45) NULL,
+//     `violationDescription` VARCHAR(105) NULL,
 //     `witness` VARCHAR(45) NULL,
 //     `date` DATETIME NULL,
 //     PRIMARY KEY (`id`));
