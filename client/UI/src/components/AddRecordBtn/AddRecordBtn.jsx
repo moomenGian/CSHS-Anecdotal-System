@@ -36,11 +36,11 @@ async function sendRecord(datas) {
 }
 
 
-function Mudal({getSectionName}) {
+function Mudal({section_Name}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => {setShow(true); setSectionName(getSectionName)};
+  const handleShow = () => {setShow(true); setSectionName(section_Name)};
 
   const [sectionName, setSectionName] = useState('')
   const [adviser, setAdviser] = useState('')

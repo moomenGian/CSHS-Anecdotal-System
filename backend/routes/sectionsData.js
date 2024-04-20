@@ -3,6 +3,17 @@ const router = express.Router()
 const mysql = require('mysql2')
 
 
+// DB SETUP:
+// CREATE TABLE `anecdotaldb`.`sectionsdata` (
+//     `sectionName` VARCHAR(50) NOT NULL,
+//     `adviser` VARCHAR(45) NULL,
+//     `id` INT NOT NULL AUTO_INCREMENT,
+//     `violator` VARCHAR(45) NULL,
+//     `violation` VARCHAR(45) NULL,
+//     `witness` VARCHAR(45) NULL,
+//     `date` DATETIME NULL,
+//     PRIMARY KEY (`id`));
+
 const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',

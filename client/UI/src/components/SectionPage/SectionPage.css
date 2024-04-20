@@ -82,6 +82,49 @@ p.btn:hover{
     margin-right: -7px;
 }
 
+.MuiBox-root.css-1wnsr1i > * {
+    margin-block: 5px;
+}
+
+.formBtns{
+    display: flex;
+    justify-content: flex-end;
+    margin-block: 5px;
+
+}
+
+.formBtns > *{
+    margin-left: 10px !important;
+    margin-top: 10px !important;
+    width: 85px;
+    height: 50px;
+}
+
+.closeBtn, .saveBtn{
+    margin-block: 5px;
+}
+
+.datepicker{
+    width: 100%;
+}
+
+form{
+    width: 455px;
+}
+
+form > *{
+    margin-bottom: 6px;
+}
+
+.MuiDialogContent-root.css-ypiqx9-MuiDialogContent-root > * {
+    margin-bottom: 5px;
+}
+
+.css-knqc4i-MuiDialogActions-root, .css-10o2lyd-MuiStack-root{
+    padding: 0 !important;
+}
+
+
 @media only screen and (min-width: 1100px) {
     .sectionInfo{
         width: 97%;

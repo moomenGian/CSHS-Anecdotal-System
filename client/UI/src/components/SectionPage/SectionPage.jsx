@@ -3,8 +3,9 @@ import Navbar from "../Navbar/Navbar"
 import './SectionPage.css'
 import { Link } from 'react-router-dom'
 import AddRecordBtn from '../AddRecordBtn/AddRecordBtn' 
-
-
+import { RecordForm } from "./RecordForm"
+import { TextField } from "@mui/material"
+import { RecordTable } from "./RecordTable"
 import { useParams } from "react-router-dom"
 
 
@@ -63,7 +64,7 @@ function Content({Strand, sectionName}) {
             </h1>
 
             <div className="sectionInfo">
-                <h2>{Strand} / {sectionName} / {adviser ? adviser : '<Adviser not found>' }</h2>
+                <h2>{Strand} / {sectionName} / {adviser ? adviser : '<Adviser not found>'} </h2>
                 <p>Total Violations: {violations ? violations.length : 0}</p>
             </div>
             <table>
@@ -74,6 +75,9 @@ function Content({Strand, sectionName}) {
                             </th>
                             <th>
                                 VIOLATION
+                            </th>
+                            <th>
+                                VIOLATION DESCRIPTION
                             </th>
                             <th>
                                 REPORTING OFFICER/ WITNESS
@@ -99,6 +103,7 @@ function Content({Strand, sectionName}) {
                                     <tr key={`${record.violator}-${record.violation}`}>
                                         <td>{record.violator}</td>
                                         <td>{record.violation}</td>
+                                        <td>{record.violationDescription}</td>
                                         <td>{record.witness}</td>
                                         <td>{date}</td>
                                         <td>EDIT</td>
@@ -107,14 +112,17 @@ function Content({Strand, sectionName}) {
                             })
                         )}
                         <tr colSpan={5}>
-                            <td colSpan={5}><AddRecordBtn getSectionName={formattedSecName}/></td>
+                             <td colSpan={5}><RecordForm section={formattedSecName}/> {/*<AddRecordBtn sectionName={formattedSecName}/>*/}</td> 
                         </tr>
                     </tbody>
                     
             </table>
+            <RecordTable />
         </>
     )
 }
+
+
 
 function SectionPage() {
     let { Strand,sectionName } = useParams()
