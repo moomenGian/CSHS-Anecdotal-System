@@ -23,9 +23,6 @@ function Navbar() {
                     <Link to={'/Login'} className='btn'>
                         Log in
                     </Link>
-                    <a href="#">
-                        <img src={settingsLogo} alt="school logo"/>
-                    </a>
                 </div>
             </nav>
         </>

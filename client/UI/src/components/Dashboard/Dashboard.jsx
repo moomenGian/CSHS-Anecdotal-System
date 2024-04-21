@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import './Dashboard.scss'
 import { getSectionViolations } from './SectionViolationsChart'
 import { MostCommitedViolationsChart } from './ViolationsChart';
+import { Card, Box, CardContent, Typography } from '@mui/material';
 
 
 
@@ -31,17 +32,30 @@ function Dashboard() {
                     <div className="col-1 px-0">
                         <Navbar />
                     </div>
-                    <div className="col-11 px-0">
-
-                        <BarChart
-                            width={650}
-                            height={300}
-                            series={[
-                                { data: violationNumbers, label: 'Section With The Most Violations', id: 'pvId' },
-                            ]}
-                            xAxis={[{ data: sections, scaleType: 'band' }]}
-                        />
-                        <MostCommitedViolationsChart />
+                    <div className="col-11 px-0 chartsContainer">
+                        
+                        <Card variant='outlined'>
+                            <CardContent>
+                                <BarChart
+                                    width={650}
+                                    height={300}
+                                    series={[
+                                        { data: violationNumbers, label: 'Section With The Most Violations', id: 'pvId' },
+                                    ]}
+                                    xAxis={[{ data: sections, scaleType: 'band' }]}
+                                    className='barChart'
+                                />
+                            </CardContent>
+                        </Card>
+                        <Card variant='outlined' className='violationChart'>
+                            <CardContent>
+                                <Typography variant='h4'>
+                                    Most Commited Violations
+                                </Typography>
+                                <MostCommitedViolationsChart />
+                            </CardContent>
+                        </Card>
+                        
                     </div>
                 </div>
             </div>

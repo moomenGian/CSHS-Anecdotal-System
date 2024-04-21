@@ -16,6 +16,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { sendRecord } from '../../Hooks/sendRecord';
+import dayjs from 'dayjs';
 
 const style = {
   position: 'absolute',
@@ -29,26 +31,26 @@ const style = {
   p: 4,
 };
 
+
 export function RecordForm({section}){
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => {setOpen(false); console.log(sectionName);};
+    const handleClose = () => setOpen(false);
 
-    const [sectionName, setSectionName] = useState('')
+    const [sectionName, setSectionName] = useState(section)
     const [adviser, setAdviser] = useState('')
     const [violator, setViolator] = useState('')
     const [violation, setViolation] = useState('')
-    const [violationDesc, setViolationDesc] = useState('')
+    const [violationDescription, setViolationDesc] = useState('')
     const [witness, setWitness] = useState('')
-    const [date, setDate] = useState(new Date().toLocaleDateString().replaceAll('/','-'))
-
-    const [age, setAge] = React.useState('');
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    const [date, setDate] = useState(dayjs())
+    const [formattedDate, setformattedDate] = useState(dayjs().format('MM-DD-YYYY'))
     
-console.log(section);
-
+    const handleSubmit = () => {
+        console.log(JSON.stringify({sectionName, adviser, violator, violation, violationDescription, witness, formattedDate : date}));
+        sendRecord({sectionName, adviser, violator, violation, violationDescription, witness, date: formattedDate})
+    }
+    const logRecord = () => console.log({sectionName, adviser, violator, violation, violationDescription, witness, formattedDate : date});
 
     return(
         <>
@@ -61,7 +63,6 @@ console.log(section);
                     component: 'form',
                     onSubmit: (event) => {
                         event.preventDefault();
-                        handleClose();
                     },
                 }}
                 className='recordForm'
@@ -76,12 +77,13 @@ console.log(section);
                     <Select 
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={age}
-                        label="Age"
-                        onChange={handleChange}
+                        value={violation}
+                        label="Violation"
+                        onChange={(e) => setViolation(e.target.value)}
                         fullWidth
                         required
                     >
+                        <MenuItem value={'Smoking/Vaping'}>Smoking/Vaping</MenuItem>
                         <MenuItem value={'Tardiness/Truancy'}>Tardiness/Truancy</MenuItem>
                         <MenuItem value={'Disruptive Behavior'}>Disruptive Behavior</MenuItem>
                         <MenuItem value={'Cheating/Plagiarism'}>Cheating/Plagiarism</MenuItem>
@@ -110,17 +112,16 @@ console.log(section);
                         required
                     />
                     <TextField required onChange={(e) => setWitness(e.target.value)} id="outlined-basic" label="Witness" variant="outlined" fullWidth/>
-                    <TextField required onChange={(e) => setWitness(e.target.value)} id="outlined-basic" label="Witness" variant="outlined" fullWidth/>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer components={['DatePicker']}>
-                        <DatePicker className='datepicker' label="Date" />
+                        <DatePicker className='datepicker' label="Date" value={date} onChange={(newValue) => setformattedDate(newValue.format('MM-DD-YYYY')) } />
                     </DemoContainer>
                     </LocalizationProvider>
                     
                     <DialogActions>
                         <div className='formBtns'>
                             <Button onClick={handleClose} variant="outlined" className='closeBtn'>Close</Button>
-                            <Button type='submit' variant="contained" className='saveBtn'>Save</Button>
+                            <Button onClick={handleSubmit}  variant="contained" className='saveBtn'>Save</Button>
                         </div>
                     </DialogActions>
                     

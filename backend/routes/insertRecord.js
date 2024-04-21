@@ -27,14 +27,15 @@ router.post('/', (req, res) => {
         adviser,
         violator,
         violation,
+        violationDescription,
         witness,
         date,
         } = req.body;
 
-    const sql = `INSERT INTO sectionsdata(sectionName, adviser, violator, violation, witness, date)
-                 VALUES(?,?,?,?,?,?)`
+    const sql = `INSERT INTO sectionsdata(sectionName, adviser, violator, violation, violationDescription, witness, date)
+                 VALUES(?,?,?,?,?,?,?)`
 
-    const data = [sectionName, adviser, violator, violation, witness, date]
+    const data = [sectionName, adviser, violator, violation, violationDescription, witness, date]
 
     con.query(sql, data, (err, results) => {
         if(err){

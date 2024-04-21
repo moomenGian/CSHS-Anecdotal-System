@@ -5,51 +5,8 @@ import { getAllRecords } from '../../Hooks/getAllRecords';
 
 
 
-// const rawdata = await getAllRecords()
-// console.log(JSON.stringify(rawdata, null, 2));
-
-const rawdata = [
-    {
-      "12-CARMACK": {
-        "adviser": "s",
-        "violations": [
-          {
-            "violator": "ss",
-            "violation": "vaping",
-            "witness": "sds",
-            "date": "2024-04-19T16:00:00.000Z"
-          }
-        ]
-      }
-    },
-    {
-      "12-BERNERSLEE": {
-        "adviser": "s",
-        "violations": [
-          {
-            "violator": "s",
-            "violation": "vaping",
-            "witness": "ss",
-            "date": "2024-04-19T16:00:00.000Z"
-          }
-        ]
-      }
-    },
-    {
-      "12-BERNERSLEE": {
-        "adviser": "ssf",
-        "violations": [
-          {
-            "violator": "f",
-            "violation": "smoking",
-            "witness": "fs",
-            "date": "2024-04-19T16:00:00.000Z"
-          }
-        ]
-      }
-    }
-  ]
-
+const rawdata = await getAllRecords()
+console.log(JSON.stringify(rawdata, null, 2));
 
 
 const violationCounts = {};
@@ -81,24 +38,6 @@ const data = aggregatedData.map(({ violation, count }, index) => ({
 
 console.log(JSON.stringify(data, null, 2));
 
-
-// const data = rawdata.map(item => {
-//     const key = Object.keys(item)[0]; // Extract the key (e.g., "12-CARMACK")
-//     const { adviser, violations } = item[key]; // Extract adviser and violations
-//     return {
-//         label: key,
-//         value: violations.length, // Count of violations
-//         color: '#0088FE'
-//     };
-// });
-
-// console.log(JSON.stringify(data, null, 2));
-
-// const data = [
-//     { label: 'vaping', value: 2, color: '#0088FE' },
-//     { label: 'smoking', value: 1, color: '#00C49F' },
-//     { label: 'bullying', value: 25, color: '#00C49F' }
-// ];
   
 const pieSizing = {
     margin: { right: 5 },
@@ -132,6 +71,7 @@ export function MostCommitedViolationsChart(){
                     },
                 }}
                 {...pieSizing}
+                className='pieChart'
             />
         </>
     )

@@ -6,7 +6,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import './Modal.scss'
 
 async function sendRecord(datas) {
-
+  console.log(JSON.stringify(datas));
   //validate input
   const {sectionName, adviser, violator, violation, witness, date} = datas
   if(!sectionName || !adviser || !violator || !violation || !witness || !date){
@@ -27,7 +27,7 @@ async function sendRecord(datas) {
     }
 
     
-    window.location.reload()
+    // window.location.reload()
     
   } catch (error) {
     console.error('Error inserting record', error);
@@ -39,8 +39,8 @@ async function sendRecord(datas) {
 function Mudal({section_Name}) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => {setShow(true); setSectionName(section_Name)};
+  const handleClose = () => {setShow(false); console.log(JSON.stringify( {sectionName, adviser, violator, violation, witness, date}));};
+  const handleShow = () => {setShow(true); setSectionName(section_Name); console.log(section_Name);};
 
   const [sectionName, setSectionName] = useState('')
   const [adviser, setAdviser] = useState('')
@@ -95,7 +95,8 @@ function Mudal({section_Name}) {
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button type='submit' onClick={() => {
+                <Button onClick={() => {
+                    console.log(JSON.stringify({sectionName, adviser, violator, violation, witness, date}));
                     sendRecord({sectionName, adviser, violator, violation, witness, date});
                   }}>Save Changes
                 </Button>

@@ -47,11 +47,12 @@ async function getData(sectionName) {
             }else{
                 const result = []
                 res.forEach((record) => {
-                    const {sectionName, adviser, violator, violation, witness, date} = record
+                    const {sectionName, adviser, violator, violation, violationDescription, witness, date, id} = record
                     result.push({
                         [sectionName]: {
                             adviser,
-                            violations: [{violator, violation, witness, date}]
+                            violations: [{violator, violation, violationDescription, witness, date}],
+                            id
                         }
                     })
                 })

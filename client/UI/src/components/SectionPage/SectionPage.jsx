@@ -46,16 +46,15 @@ function Content({Strand, sectionName}) {
 
     const fetchViolations = async () => {
         if (data) {
-            await Promise.all(data.map(async element => {
+            await Promise.all(data.map(async (element, index) => {
                 let e = Object.values(element)[0].violations[0];
+                e.id = index + 1
                 violations.push(e);
             }));
         }
     };
-
+    console.log(data);
     fetchViolations()
-
-
 
     return (
         <>
@@ -85,9 +84,6 @@ function Content({Strand, sectionName}) {
                             <th>
                                 DATE
                             </th>
-                            <th>
-                                ACTIONS
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,26 +94,24 @@ function Content({Strand, sectionName}) {
                         ) : (
                             violations.map(record => {
                                 const date = new Date(record.date).toLocaleDateString()
-
+                                
                                 return (
-                                    <tr key={`${record.violator}-${record.violation}`}>
+                                    <tr key={`${record.id}`}>
                                         <td>{record.violator}</td>
                                         <td>{record.violation}</td>
                                         <td>{record.violationDescription}</td>
                                         <td>{record.witness}</td>
                                         <td>{date}</td>
-                                        <td>EDIT</td>
                                     </tr>
                                 )
                             })
                         )}
                         <tr colSpan={5}>
-                             <td colSpan={5}><RecordForm section={formattedSecName}/> {/*<AddRecordBtn sectionName={formattedSecName}/>*/}</td> 
+                             <td colSpan={5}><RecordForm section={formattedSecName}/> {/*<AddRecordBtn section_Name={formattedSecName}/>*/}</td> 
                         </tr>
                     </tbody>
                     
             </table>
-            <RecordTable />
         </>
     )
 }
